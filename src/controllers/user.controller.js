@@ -76,5 +76,15 @@ const registerUser = asyncHandler( async (req, res) => {
     "-password -refreshToken"
   ) 
 
-  if (!)
+  if (!createUser){
+    throw new ApiError(500, "Something went wrong while registring the user")
+  }
+
+  return req.status(201).json(
+    new ApiResponse(200, createUser, "User register Successfully")
+  )
+})
+
+const loginUser = asyncHandler(async (req, res) => {
+  //re
 })
